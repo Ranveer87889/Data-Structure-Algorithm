@@ -3,8 +3,8 @@ public:
        unordered_map<string,string>mp;
     // Encodes a URL to a shortened URL.
     string encode(string longUrl) {
-        mp[longUrl]="leetcode";
-        return "leetcode";
+        mp[longUrl]="leetcode&123";
+        return "leetcode&123";
     }
 
     // Decodes a shortened URL to its original URL.

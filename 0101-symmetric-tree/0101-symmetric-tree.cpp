@@ -12,6 +12,7 @@
 class Solution {
 public:
     bool ans;
+     bool Final;
 bool areMirror(TreeNode *root1, TreeNode *root2)
 {
    if(root1==NULL && root2==NULL) return true;
@@ -21,9 +22,12 @@ bool areMirror(TreeNode *root1, TreeNode *root2)
    return ans;
 }
     bool isSymmetric(TreeNode* root) {
+        if(root==NULL) return true;
+        else{
         TreeNode* root1= root->left;
         TreeNode* root2 = root->right;
-        bool Final = areMirror(root1,root2);
+         Final = areMirror(root1,root2);}
+        
         return Final;
     }
 };

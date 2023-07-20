@@ -11,11 +11,18 @@
  */
 class Solution {
 public:
+    int l=1;int ans =0;
+    void height(TreeNode*root,int l){
+        if(root==NULL)return;
+        if(root->left==NULL && root->right==NULL){
+            ans = max(ans,l);
+            return;
+        }
+        height(root->left,l+1);
+        height(root->right,l+1);
+    }
     int maxDepth(TreeNode* root) {
-        if(root==NULL) return 0;
-        if(!root->left && !root->right) return 1;
-        if(!root) return 0;
-        
-        return 1+max(maxDepth(root->left),maxDepth(root->right));
+        height(root,l);
+        return ans;
     }
 };

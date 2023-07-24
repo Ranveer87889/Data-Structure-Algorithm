@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// wrost tc ---o^n2
 class Solution {
 public:
     int GetHeight(TreeNode* root){

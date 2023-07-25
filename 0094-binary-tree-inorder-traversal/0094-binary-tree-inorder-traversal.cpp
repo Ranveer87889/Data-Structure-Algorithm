@@ -10,18 +10,29 @@
  * };
  */
 class Solution {
-public: void Print(TreeNode* root,vector<int>&v){
-        if(!root) return;
-        
-        Print(root->left,v);
-    v.push_back(root->val);
-        Print(root->right,v);
-        
-    }
-  
+public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int>v;
-        Print(root,v);
+        if(root==NULL) return v;
+        stack<pair<TreeNode*,int>>stk;
+        stk.push({root,0});
+        while(!stk.empty()){
+            pair<TreeNode*,int> p = stk.top();
+            stk.pop();
+            if(p.second==1){
+                v.push_back(p.first->val);
+            }
+            else{
+                if(p.first->right){
+                    stk.push({p.first->right,0});
+                }
+                stk.push({p.first,1});
+                if(p.first->left){
+                    stk.push({p.first->left,0});
+                }
+            }
+            
+        }
         return v;
     }
 };

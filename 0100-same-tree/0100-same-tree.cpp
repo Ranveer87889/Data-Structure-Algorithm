@@ -16,7 +16,7 @@ public:
         if(!p && !q) return;
         if(!p && q){
             ans = false;
-            return;
+           return;
         }
         if(p && !q){
             ans = false;
@@ -24,7 +24,7 @@ public:
         }
         if(p->val != q->val){
             ans=false;
-            return;
+           return;
         }
         CheckSame(p->left,q->left);
         CheckSame(p->right,q->right);

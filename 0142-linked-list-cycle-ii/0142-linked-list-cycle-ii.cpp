@@ -23,12 +23,16 @@ public:
         
         if(!hasCycle) return NULL;
         else {
-            ListNode *p = head;
-            while(p!=slow){
+           ListNode *p = head;
+            while (1){
+                ListNode *temp = slow;
+                while(temp != p){
+                    temp = temp->next;
+                    if(temp == slow) break;
+                }
+                if(temp == p) return temp;
                 p=p->next;
-                slow = slow->next;
             }
-            return slow;
         }
         return NULL;
     }

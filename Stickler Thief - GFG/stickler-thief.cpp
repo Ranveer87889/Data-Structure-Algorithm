@@ -11,13 +11,15 @@ class Solution
     int FindMaxSum(int arr[], int n)
     {
         if(n==1) return max(0,arr[0]);
-       vector<int> ans (n,-1);
-       ans[0]=max(0,arr[0]);
-       ans[1]= max(ans[0],arr[1]);
+      int prev,next;
+       prev =max(0,arr[0]);
+       next = max(prev,arr[1]);
        for(int i=2;i<n;i++){
-           ans [i]= max(arr[i]+ans[i-2],ans[i-1]);
+         int   curr = max(arr[i]+prev,next);
+           prev = next;
+           next = curr;
        }
-       return ans[n-1];
+       return next;
     }
 };
 
